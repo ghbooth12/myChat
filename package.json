@@ -1,10 +1,10 @@
 {
-  "name": "bloc-frontend-project-starter",
-  "version": "0.0.2",
-  "description": "Starter project for the Bloc Frontend Web Development",
+  "name": "myChat",
+  "version": "0.0.1",
+  "description": "A real-time chat client using AngularJS and Firebase",
   "repository": {
     "type": "git",
-    "url": "https://github.com/bloc/bloc-frontend-project-starter"
+    "url": "https://github.com/ghbooth12/myChat"
   },
   "main": "server.js",
   "scripts": {
