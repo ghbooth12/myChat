@@ -1,4 +1,14 @@
-<h3>Main</h3>
-<ul>
-  <li ng-repeat="room in main.rooms">{{ room.name }} <small>- {{ room.description }}</small></li>
-</ul>
+<div class="clearfix">
+  <h3 class="text-center">Chat Room List</h3>
+  <a ng-click="main.openModal()" class="btn btn-primary pull-right">New Chat Room</a>
+</div>
+<table class="table table-striped">
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+  </tr>
+  <tr ng-repeat="room in main.rooms">
+    <td>{{ room.name }}</td>
+    <td>{{ room.description }}</td>
+  </tr>
+</table>

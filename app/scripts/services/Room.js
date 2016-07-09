@@ -8,7 +8,10 @@
     var rooms = $firebaseArray(firebaseRef.child('rooms'));
 
     return {
-      all: rooms
+      all: rooms,
+      add: function(info) {
+        rooms.$add({name: info.name, description: info.description});
+      }
     };
   }
 })();
