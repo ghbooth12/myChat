@@ -7,14 +7,16 @@
     this.room = Room;
     this.user = User;
     this.openModal = function() {
-      $uibModal
+      if (User.username) {
+        $uibModal
         .open({
           templateUrl: 'templates/modal.html',
           controller: 'ModalCtrl as modal'
         })
-        .result.then(function(roomInfo) {
-          Room.add(roomInfo);
+        .result.then(function(result) {
+          Room.add(result);
         });
+      }
     };
   }
 })();

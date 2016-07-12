@@ -1,0 +1,16 @@
+<div>
+  <div class="modal-header">
+    <h3 class="modal-title">Set a username</h3>
+    <p>This name will appear when you send messages.</p>
+  </div>
+  <div class="modal-body">
+    <form ng-submit="userModal.save()">
+      <div class="form-group">
+        <label class="sr-only">Name</label>
+        <input type="text" id="name" ng-model="userModal.username" class="form-control" autofocus="true">
+      </div>
+      <a ng-click="userModal.cancel()">Cancel</a>
+      <input type="submit" class="btn btn-primary pull-right" value="Save">
+    </form>
+  </div>
+</div>

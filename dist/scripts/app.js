@@ -1,6 +1,6 @@
 (function() {
   angular
-    .module('myChat', ['ui.router', 'firebase', 'ui.bootstrap'])
+    .module('myChat', ['ui.router', 'firebase', 'ui.bootstrap', 'ngCookies'])
     .config(config);
 
   function config($stateProvider, $locationProvider) {
