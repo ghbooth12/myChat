@@ -1,21 +1,26 @@
 (function() {
   angular
     .module('myChat')
-    .factory('Messages', ['$firebaseArray', Messages]);
+    .factory('Messages', ['$firebaseArray', 'User', 'Room', Messages]);
 
-  function Messages($firebaseArray) {
+  function Messages($firebaseArray, User, Room) {
     var firebaseRef = new Firebase('https://my-chat-c1542.firebaseio.com');
     var messages = $firebaseArray(firebaseRef.child('messages'));
 
     return {
       all: messages,
-      add: function(msg) {
-        messages.$add({
-          username: msg.username,
-          content: msg.content,
-          sentAt: msg.sentAt,
-          roomId: msg.roomId
-        });
+      add: function(newContent) {
+        if (newContent) {
+          var msg = {
+            username: User.username,
+            content: newContent,
+            sentAt: new Date().getTime(),
+            roomId: Room.activeRoom.currentRoomId
+          };
+
+          messages.$add(msg);
+          this.newContent = null;
+        }
       }
     };
   }
