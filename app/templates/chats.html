@@ -1,0 +1,13 @@
+<section id="messages" ng-controller="ChatsCtrl as chats">
+  <div class="single-msg" ng-repeat="message in chats.messages()">
+    <small class="pull-left"><strong>{{ message.username }} </strong></small>
+    <small class="pull-right">{{ message.sentAt | date:"medium" }}</small>
+    <br>
+    <p>{{ message.content }}</p>
+  </div>
+
+  <form ng-submit="chats.addMessage(chats.newContent)">
+    <input type="text" ng-model="chats.newContent" autofocus="true">
+    <input type="submit" class="btn btn-success" value="Send">
+  </form>
+</section>

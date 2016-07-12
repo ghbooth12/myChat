@@ -1,3 +1,25 @@
+/* Custom Style */
+section#messages {
+  margin: 0 20px;
+}
+
+section#messages .single-msg small.pull-right {
+  color: #aaa;
+}
+
+section#messages .single-msg p {
+  border-bottom: 1px solid #eee;
+}
+
+section#messages input[type="text"] {
+  width: 86%;
+}
+
+section#messages input[type="submit"] {
+  width: 13%;
+}
+
+/* Global Style */
 .clearfix::before,
 .clearfix::after {
   content: " ";

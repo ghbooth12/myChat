@@ -1,9 +1,9 @@
 (function() {
   angular
     .module('myChat')
-    .controller('ModalCtrl', ['$uibModalInstance', 'Room', ModalCtrl]);
+    .controller('ModalCtrl', ['$uibModalInstance', ModalCtrl]);
 
-  function ModalCtrl($uibModalInstance, Room) {
+  function ModalCtrl($uibModalInstance) {
     this.roomInfo = {};
 
     this.save = function() {
