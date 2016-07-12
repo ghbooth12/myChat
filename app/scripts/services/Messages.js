@@ -8,8 +8,7 @@
     var messages = $firebaseArray(firebaseRef.child('messages'));
 
     return {
-      all: messages,
-      add: function(newContent) {
+      send: function(newContent) {
         if (newContent) {
           var msg = {
             username: User.username,

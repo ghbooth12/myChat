@@ -6,7 +6,7 @@
     <p>{{ message.content }}</p>
   </div>
 
-  <form ng-submit="chats.addMessage(chats.newContent)">
+  <form ng-submit="chats.sendMessage(chats.newContent)">
     <input type="text" ng-model="chats.newContent" autofocus="true">
     <input type="submit" class="btn btn-success" value="Send">
   </form>

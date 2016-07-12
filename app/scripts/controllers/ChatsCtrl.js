@@ -8,6 +8,6 @@
       return Room.activeRoom.messageList;
     };
 
-    this.addMessage = Messages.add;
+    this.sendMessage = Messages.send;
   }
 })();
