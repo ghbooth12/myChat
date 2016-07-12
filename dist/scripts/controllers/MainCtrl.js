@@ -1,10 +1,11 @@
 (function() {
   angular
     .module('myChat')
-    .controller('MainCtrl', ['Room', '$uibModal', MainCtrl]);
+    .controller('MainCtrl', ['Room', '$uibModal', 'User', MainCtrl]);
 
-  function MainCtrl(Room, $uibModal) {
-    this.rooms = Room.all;
+  function MainCtrl(Room, $uibModal, User) {
+    this.room = Room;
+    this.user = User;
     this.openModal = function() {
       $uibModal
         .open({

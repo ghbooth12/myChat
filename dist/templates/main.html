@@ -1,14 +1,39 @@
-<div class="clearfix">
-  <h3 class="text-center">Chat Room List</h3>
-  <a ng-click="main.openModal()" class="btn btn-primary pull-right">New Chat Room</a>
+<h3 class="text-center">Chat Room List</h3>
+
+<div ng-show="!main.user.joinedUser" class="text-center">
+  <span>Enter your name to join the chat room.</span>
+  <form ng-submit="main.user.joinUser()">
+    <input type="text" ng-model="main.user.username" autofocus="true">
+    <input type="submit" class="btn btn-success" value="Join">
+  </form>
 </div>
-<table class="table table-striped">
-  <tr>
-    <th>Name</th>
-    <th>Description</th>
-  </tr>
-  <tr ng-repeat="room in main.rooms">
-    <td>{{ room.name }}</td>
-    <td>{{ room.description }}</td>
-  </tr>
-</table>
+
+<div ng-show="main.user.joinedUser">
+  <div class="container">
+    <div class="col-sm-3" style="background-color: #ddd;">
+      <div class="clearfix">
+        <a ng-click="main.openModal()" class="btn btn-primary pull-right">New Chat Room</a>
+      </div>
+      <p>Hello, <strong>{{ main.user.username }}</strong>!</p>
+      <ul>
+        <li ng-repeat="room in main.room.all">
+          <a ng-click="main.room.activeRoom.selectRoom(room)">
+            <span class="lead">{{ room.name }}</span><br>
+            <small>{{ room.description }}</small>
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div class="col-md-9">
+      <div ng-show="!main.room.activeRoom.currentRoom">
+        Choose and click the chat room on the left.
+      </div>
+      <div ng-show="main.room.activeRoom.currentRoom">
+        <h4>{{ main.room.activeRoom.currentRoom.name }}</h4>
+        <p>{{ main.room.activeRoom.currentRoom.description }}</p>
+
+        <ng-include src="'/templates/chats.html'"></ng-include>
+      </div>
+    </div>
+  </div>
+</div>
